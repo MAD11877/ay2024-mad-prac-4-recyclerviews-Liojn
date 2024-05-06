@@ -6,25 +6,13 @@ public class User {
     int id;
     boolean followed;
 
-    public User() {
-        name = "default";
-        description = "default";
-        id = 0;
-        followed = false;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public boolean getFollowed() {
-        return followed;
-    }
-
+    public void setName(String username){this.name = username;}
+    public void setDescription(String description){this.description = description;}
+    public void setId(int id){this.id = id;}
+    public void setFollowed(boolean Followed){this.followed = followed;}
+    public String getName(){return name;}
+    public String getDescription(){return description;}
+    public boolean getFollowed(){return followed;}
     public User(String n, String d, int i, boolean f) {
         name = n;
         description = d;

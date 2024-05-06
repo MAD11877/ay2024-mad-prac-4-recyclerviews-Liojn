@@ -30,11 +30,14 @@ public class ListActivity extends AppCompatActivity {
         userList = new ArrayList<>();
 
         for (int i = 0; i < 20; i++) {
-            User user = new User();
-            user.name = "Name " + Math.abs(random.nextInt());
-            user.description = "Description " + Math.abs(random.nextInt());
-            user.id = i;
-            user.followed = random.nextBoolean();
+            int name = new Random().nextInt(999999999);
+            int description = new Random().nextInt(999999999);
+            boolean followed = new Random().nextBoolean();
+
+            User user = new User("John Doe", "MAD Developer",1,false);
+            user.setName("Name"+ String.valueOf(name));
+            user.setDescription("Description "+String.valueOf(description));
+            user.setFollowed(followed);
             userList.add(user);
         }
 

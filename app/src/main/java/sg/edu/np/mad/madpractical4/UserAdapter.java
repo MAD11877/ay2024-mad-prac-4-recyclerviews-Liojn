@@ -42,7 +42,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
                     })
                     .setNegativeButton("VIEW", (dialog, which) -> {
                         Intent intent = new Intent(v.getContext(), MainActivity.class);
-                        intent.putExtra("id", currentUser.id);
+                        intent.putExtra("name", currentUser.name);
                         v.getContext().startActivity(intent);
                     })
                     .create();
@@ -50,17 +50,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
             alertDialog.show();
 
             System.out.println("Image clicked");
+
+            if (currentUser.getName().substring(currentUser.getName().length() - 1).equals("7")) {
+                // Potentially pre-calculate width if needed
+                int width = holder.squareImageView.getWidth(); // Or stored width
+                ViewGroup.LayoutParams params = holder.squareImageView.getLayoutParams();
+                params.height = width;
+                holder.squareImageView.setLayoutParams(params);
+                holder.squareImageView.setVisibility(View.VISIBLE);
+            }
         });
 
-        if (currentUser.name.substring(currentUser.name.length() - 1).equals("7")) {
-            int width = holder.squareImageView.getWidth();
-            ViewGroup.LayoutParams params = holder.squareImageView.getLayoutParams();
-            params.height = width;
-            holder.squareImageView.setLayoutParams(params);
-
-            holder.squareImageView.setVisibility(View.VISIBLE);
-
-        }
     }
 
     @Override
